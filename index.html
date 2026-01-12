@@ -2,15 +2,73 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Vitas AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitas AI - Akıllı Asistan</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h1>🤖 Vitas AI</h1>
-    <p>Yapay zeka asistanı • Fotoğraf işleme • Video oluşturma</p>
-    <button>Sohbet Başlat</button>
-    <button>Fotoğraf Yükle</button>
-    <button>Video Oluştur</button>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> Vitas AI</h1>
+            <p class="tagline">Yapay Zeka ile Konuş • Fotoğraf İşle • Video Oluştur</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="chat"><i class="fas fa-comment"></i> Sohbet</button>
+            <button class="tab" data-tab="image"><i class="fas fa-image"></i> Fotoğraf</button>
+            <button class="tab" data-tab="video"><i class="fas fa-video"></i> Video</button>
+            <button class="tab" data-tab="voice"><i class="fas fa-microphone"></i> Ses</button>
+        </div>
+
+        <div id="chat" class="tab-content active">
+            <div class="chat-box" id="chat-box">
+                <div class="message ai">
+                    <strong>Vitas AI:</strong> Merhaba! Size nasıl yardımcı olabilirim?
+                </div>
+            </div>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Bir şeyler yazın...">
+                <button id="send-btn"><i class="fas fa-paper-plane"></i> Gönder</button>
+                <button id="voice-btn"><i class="fas fa-microphone"></i> Sesle</button>
+            </div>
+        </div>
+
+        <div id="image" class="tab-content">
+            <h3><i class="fas fa-upload"></i> Fotoğraf Yükle & İşle</h3>
+            <input type="file" id="image-upload" accept="image/*">
+            <div class="preview-area">
+                <img id="image-preview" src="" alt="Önizleme">
+                <div class="image-controls">
+                    <button id="filter-btn"><i class="fas fa-magic"></i> AI Filtre Uygula</button>
+                    <button id="describe-btn"><i class="fas fa-eye"></i> Fotoğrafı Tanımla</button>
+                </div>
+                <div id="image-result"></div>
+            </div>
+        </div>
+
+        <div id="video" class="tab-content">
+            <h3><i class="fas fa-film"></i> Video Oluştur</h3>
+            <textarea id="video-prompt" placeholder="Video konusunu yazın: 'Deniz kenarında gün batımı...'"></textarea>
+            <button id="generate-video-btn"><i class="fas fa-play-circle"></i> Video Oluştur</button>
+            <div class="video-placeholder" id="video-result">
+                <p>Video burada görünecek...</p>
+            </div>
+        </div>
+
+        <div id="voice" class="tab-content">
+            <h3><i class="fas fa-microphone-alt"></i> Sesli Asistan</h3>
+            <button id="start-voice-btn"><i class="fas fa-microphone"></i> Konuşmaya Başla</button>
+            <div id="voice-status">Sesi dinliyor...</div>
+            <div id="voice-output"></div>
+        </div>
+
+        <footer>
+            <p>© 2026 Vitas AI • Tüm hakları saklıdır.</p>
+            <p class="warning">Not: Bu demo sürümüdür. Gerçek AI API'ları bağlandığında çalışacak.</p>
+        </footer>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
