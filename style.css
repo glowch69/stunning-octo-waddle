@@ -1,17 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-    background: #0f172a;
-    color: white;
-    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+header {
     text-align: center;
-    padding: 50px;
+    margin-bottom: 30px;
 }
 
-h1 {
-    color: #00d4ff;
+header h1 {
     font-size: 3rem;
+    color: #00d4ff;
+    margin-bottom: 10px;
 }
 
-p {
+.tagline {
     font-size: 1.2rem;
-    color: #94a3b8;
+    color: #aaa;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.tab {
+    padding: 15px 25px;
+    background: #222;
+    color: #ccc;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab.active {
+    background: #00d4ff;
+    color: #000;
+    font-weight: bold;
+}
+
+.tab:hover {
+    background: #444;
+}
+
+.tab.active:hover {
+    background: #00b8e6;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.chat-box {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.message {
+    padding: 12px 18px;
+    margin: 10px 0;
+    border-radius: 20px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.ai {
+    background: rgba(0, 212, 255, 0.2);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.message.user {
+    background: rgba(255, 255, 255, 0.1);
+    align-self: flex-end;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+input, textarea {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+}
+
+textarea {
+    border-radius: 15px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+button {
+    padding: 15px 25px;
+    background: #00d4ff;
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+button:hover {
+    background: #00b8e6;
+    transform: scale(1.05);
+}
+
+.preview-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border: 2px dashed #00d4ff;
+    padding: 10px;
+}
+
+.image-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.video-placeholder {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 20px;
+    color: #aaa;
+}
+
+#voice-status {
+    padding: 15px;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 15px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.warning {
+    color: #ff9900;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .input-area {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
 }
